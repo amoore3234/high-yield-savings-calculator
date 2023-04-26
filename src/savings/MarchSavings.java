@@ -1,8 +1,8 @@
 package savings;
 
-public class JanuarySavings extends Calculations {
-
-  public JanuarySavings() {
+public class MarchSavings extends Calculations {
+  
+  public MarchSavings() {
   }
 
   public double getAverageBalance(double highYieldPrinciple) {
@@ -14,45 +14,37 @@ public class JanuarySavings extends Calculations {
         daysInMonth = days;
         averageBalance = calculateDailyPrinciple(days, averageBalance, highYieldPrinciple);
       }
-      if (days == 5) {
+      if (days == 2) {
         days++;
         days -= daysInMonth;
         averageBalance = calculateDailyPrinciple(days, averageBalance, highYieldPrinciple);
-        highYieldPrinciple += 2655.75;
-        days = 5;
-        daysInMonth = 5;
+        highYieldPrinciple += 2392.45;
+        days = 2;
+        daysInMonth = 2;
       }
-      if (days == 18) {
+      if (days == 9) {
         days++;
         days -= daysInMonth;
         averageBalance = calculateDailyPrinciple(days, averageBalance, highYieldPrinciple);
-        highYieldPrinciple += 2000.00;
-        days = 18;
-        daysInMonth = 18;
+        highYieldPrinciple += 2889.00;
+        days = 9;
+        daysInMonth = 9;
       }
-      if (days == 19) {
+      if (days == 16) {
         days++;
         days -= daysInMonth;
         averageBalance = calculateDailyPrinciple(days, averageBalance, highYieldPrinciple);
-        highYieldPrinciple += 2392.44;
-        days = 19;
-        daysInMonth = 19;
+        highYieldPrinciple += 2392.43;
+        days = 16;
+        daysInMonth = 16;
       }
-      if (days == 25) {
+      if (days == 30) {
         days++;
         days -= daysInMonth;
         averageBalance = calculateDailyPrinciple(days, averageBalance, highYieldPrinciple);
-        highYieldPrinciple -= 100;
-        days = 25;
-        daysInMonth = 25;
-      }
-      if (days == 27) {
-        days++;
-        days -= daysInMonth;
-        averageBalance = calculateDailyPrinciple(days, averageBalance, highYieldPrinciple);
-        highYieldPrinciple += 741.06;
-        days = 27;
-        daysInMonth = 27;
+        highYieldPrinciple += 2392.45;
+        days = 30;
+        daysInMonth = 30;
       }
       if (days == 31) {
         days++;
@@ -67,11 +59,10 @@ public class JanuarySavings extends Calculations {
   }
 
   public double getHighYieldPrinciple(double highYieldPrinciple) {
-    highYieldPrinciple += 2655.75;
-    highYieldPrinciple += 2000.00;
-    highYieldPrinciple += 2392.44;
-    highYieldPrinciple -= 100;
-    highYieldPrinciple += 741.06;
+    highYieldPrinciple += 2392.45;
+    highYieldPrinciple += 2889.00;
+    highYieldPrinciple += 2392.43;
+    highYieldPrinciple += 2392.45;
     return highYieldPrinciple;
   }
 

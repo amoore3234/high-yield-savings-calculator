@@ -27,7 +27,6 @@ public class Calculations implements CalculationsRepository {
 
   @Override
   public double getUpdatedAverageBalance(double averageBalance, double highYieldInterest, double monthInDays) {
-    monthInDays = 31;
     averageBalance += highYieldInterest;
     averageBalance /= monthInDays;
     return averageBalance;
