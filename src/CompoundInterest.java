@@ -3,6 +3,7 @@ import java.text.DecimalFormat;
 import savings.AprilSavings;
 import savings.FebruarySavings;
 import savings.JanuarySavings;
+import savings.JuneSavings;
 import savings.MarchSavings;
 import savings.MaySavings;
 
@@ -150,6 +151,7 @@ public class CompoundInterest {
     MarchSavings marchSavings = new MarchSavings();
     AprilSavings aprilSavings = new AprilSavings();
     MaySavings maySavings = new MaySavings();
+    JuneSavings juneSavings = new JuneSavings();
 
     double januaryHighYieldInterest = 0.0;
     double januaryNewAverageBalance = 0.0;
@@ -170,6 +172,10 @@ public class CompoundInterest {
     double mayHighYieldInterest = 0.0;
     double mayNewAverageBalance = 0.0;
     double mayHighYieldPrinciple = 0.0;
+
+    double juneHighYieldInterest = 0.0;
+    double juneNewAverageBalance = 0.0;
+    double juneHighYieldPrinciple = 0.0;
     double totalInterestPaid = 0.0;
     double beginningBalance = 13804.13;
  
@@ -209,7 +215,7 @@ public class CompoundInterest {
       aprilHighYieldInterest = aprilSavings.getHighYieldInterest(marchHighYieldPrinciple, aprilNewAverageBalance, aprilHighYieldInterest);
       aprilHighYieldPrinciple += aprilHighYieldInterest;
       aprilNewAverageBalance = aprilSavings.getUpdatedAverageBalance(aprilNewAverageBalance, aprilHighYieldInterest, 31);
-      totalInterestPaid += marchHighYieldInterest;
+      totalInterestPaid += aprilHighYieldInterest;
       aprilSavings.getReport("April", aprilNewAverageBalance, aprilHighYieldInterest, totalInterestPaid, aprilHighYieldPrinciple);
 
       //May savings balance
@@ -218,8 +224,17 @@ public class CompoundInterest {
       mayHighYieldInterest = maySavings.getHighYieldInterest(aprilHighYieldPrinciple, mayNewAverageBalance, mayHighYieldInterest);
       mayHighYieldPrinciple += mayHighYieldInterest;
       mayNewAverageBalance = maySavings.getUpdatedAverageBalance(mayNewAverageBalance, mayHighYieldInterest, 31);
-      totalInterestPaid += marchHighYieldInterest;
-      aprilSavings.getReport("May", mayNewAverageBalance, mayHighYieldInterest, totalInterestPaid, mayHighYieldPrinciple);
+      totalInterestPaid += mayHighYieldInterest;
+      maySavings.getReport("May", mayNewAverageBalance, mayHighYieldInterest, totalInterestPaid, mayHighYieldPrinciple);
+
+      //June savings balance
+      juneHighYieldPrinciple = juneSavings.getHighYieldPrinciple(mayHighYieldPrinciple);
+      juneNewAverageBalance = juneSavings.getAverageBalance(mayHighYieldPrinciple);
+      juneHighYieldInterest = juneSavings.getHighYieldInterest(mayHighYieldPrinciple, juneNewAverageBalance, juneHighYieldInterest);
+      juneHighYieldPrinciple += juneHighYieldInterest;
+      juneNewAverageBalance = juneSavings.getUpdatedAverageBalance(juneNewAverageBalance, juneHighYieldInterest, 30);
+      totalInterestPaid += juneHighYieldInterest;
+      juneSavings.getReport("June", juneNewAverageBalance, juneHighYieldInterest, totalInterestPaid, juneHighYieldPrinciple);
 
       //highYieldPrinciple = februarySavings.getHighYieldPrinciple(days, daysInMonth, interestfinal, highYieldInterest, averageBalance, newAverageBalance, interest, newHighYieldPrinciple, updatedAverageBalance, totalInterestPaid);
       // februarySavingsBalance(days, daysInMonth, interestfinal, highYieldInterest, newHighYieldPrinciple, interest);
