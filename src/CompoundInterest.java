@@ -3,6 +3,7 @@ import java.text.DecimalFormat;
 import savings.AprilSavings;
 import savings.FebruarySavings;
 import savings.JanuarySavings;
+import savings.JulySavings;
 import savings.JuneSavings;
 import savings.MarchSavings;
 import savings.MaySavings;
@@ -152,6 +153,7 @@ public class CompoundInterest {
     AprilSavings aprilSavings = new AprilSavings();
     MaySavings maySavings = new MaySavings();
     JuneSavings juneSavings = new JuneSavings();
+    JulySavings julySavings = new JulySavings();
 
     double januaryHighYieldInterest = 0.0;
     double januaryNewAverageBalance = 0.0;
@@ -176,6 +178,10 @@ public class CompoundInterest {
     double juneHighYieldInterest = 0.0;
     double juneNewAverageBalance = 0.0;
     double juneHighYieldPrinciple = 0.0;
+
+    double julyHighYieldInterest = 0.0;
+    double julyNewAverageBalance = 0.0;
+    double julyHighYieldPrinciple = 0.0;
     double totalInterestPaid = 0.0;
     double beginningBalance = 13804.13;
  
@@ -235,6 +241,15 @@ public class CompoundInterest {
       juneNewAverageBalance = juneSavings.getUpdatedAverageBalance(juneNewAverageBalance, juneHighYieldInterest, 30);
       totalInterestPaid += juneHighYieldInterest;
       juneSavings.getReport("June", juneNewAverageBalance, juneHighYieldInterest, totalInterestPaid, juneHighYieldPrinciple);
+
+      //July savings balance
+      julyHighYieldPrinciple = julySavings.getHighYieldPrinciple(juneHighYieldPrinciple);
+      julyNewAverageBalance = julySavings.getAverageBalance(juneHighYieldPrinciple);
+      julyHighYieldInterest = julySavings.getHighYieldInterest(juneHighYieldPrinciple, julyNewAverageBalance, julyHighYieldInterest);
+      julyHighYieldPrinciple += julyHighYieldInterest;
+      julyNewAverageBalance = juneSavings.getUpdatedAverageBalance(julyNewAverageBalance, julyHighYieldInterest, 30);
+      totalInterestPaid += juneHighYieldInterest;
+      julySavings.getReport("July", julyNewAverageBalance, julyHighYieldInterest, totalInterestPaid, julyHighYieldPrinciple);
 
       //highYieldPrinciple = februarySavings.getHighYieldPrinciple(days, daysInMonth, interestfinal, highYieldInterest, averageBalance, newAverageBalance, interest, newHighYieldPrinciple, updatedAverageBalance, totalInterestPaid);
       // februarySavingsBalance(days, daysInMonth, interestfinal, highYieldInterest, newHighYieldPrinciple, interest);
