@@ -2,13 +2,13 @@ package savings;
 
 import java.text.DecimalFormat;
 
-public class Calculations implements CalculationsRepository {
+abstract class Calculations implements CalculationsRepository {
 
   @Override
-  public double calculateDailyPrinciple(int daysOfMonth, double newHighYieldBalance, double highYieldBalance) {
-    while (daysOfMonth > 1) {
+  public double calculateDailyPrinciple(int dayCount, double newHighYieldBalance, double highYieldBalance) {
+    while (dayCount > 1) {
       newHighYieldBalance += highYieldBalance;
-      daysOfMonth--;
+      dayCount--;
     }
     return newHighYieldBalance;
   }
@@ -17,7 +17,7 @@ public class Calculations implements CalculationsRepository {
   public void getReport(String monthName, double newAverageBalance, double highYieldInterest,
       double totalInterestPaid, double highYieldPrinciple) {
     DecimalFormat decimalFormat = new DecimalFormat("#.##");
-    System.out.println("********************* " + monthName + " Balance*******************************");
+    System.out.println("********************* " + monthName + " Balance *******************************");
     System.out.println("Average Monthly Balance: " + decimalFormat.format(newAverageBalance));
     System.out.println("Interest Paid for the Month: " + decimalFormat.format(highYieldInterest));
     System.out.println("Total Interest Paid: " + decimalFormat.format(totalInterestPaid));
