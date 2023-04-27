@@ -1,8 +1,8 @@
 package savings;
 
-public class AprilSavings extends Calculations {
+public class NovemberSavings extends Calculations {
   
-  public AprilSavings() {
+  public NovemberSavings() {
   }
 
   public double getAverageBalance(double highYieldPrinciple) {
@@ -14,21 +14,21 @@ public class AprilSavings extends Calculations {
         daysInMonth = days;
         averageBalance = calculateDailyPrinciple(days, averageBalance, highYieldPrinciple);
       }
-      if (days == 13) {
+      if (days == 9) {
         days++;
         days -= daysInMonth;
         averageBalance = calculateDailyPrinciple(days, averageBalance, highYieldPrinciple);
         highYieldPrinciple += 2392.43;
-        days = 13;
-        daysInMonth = 13;
+        days = 9;
+        daysInMonth = 9;
       }
-      if (days == 27) {
+      if (days == 23) {
         days++;
         days -= daysInMonth;
         averageBalance = calculateDailyPrinciple(days, averageBalance, highYieldPrinciple);
         highYieldPrinciple += 2392.45;
-        days = 27;
-        daysInMonth = 27;
+        days = 23;
+        daysInMonth = 23;
       }
       if (days == 30) {
         days++;
@@ -61,5 +61,5 @@ public class AprilSavings extends Calculations {
     highYieldInterest = averageBalance * (Math.pow(1 + interestFinal, interest));
     highYieldInterest -= averageBalance;
     return highYieldInterest;
-  } 
+  }
 }

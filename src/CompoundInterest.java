@@ -1,9 +1,17 @@
 import java.text.DecimalFormat;
 
 import savings.AprilSavings;
+import savings.AugustSavings;
+import savings.DecemberSavings;
 import savings.FebruarySavings;
 import savings.JanuarySavings;
+import savings.JulySavings;
+import savings.JuneSavings;
 import savings.MarchSavings;
+import savings.MaySavings;
+import savings.NovemberSavings;
+import savings.OctoberSavings;
+import savings.SeptemberSavings;
 
 public class CompoundInterest {
 
@@ -148,6 +156,14 @@ public class CompoundInterest {
     FebruarySavings februarySavings = new FebruarySavings();
     MarchSavings marchSavings = new MarchSavings();
     AprilSavings aprilSavings = new AprilSavings();
+    MaySavings maySavings = new MaySavings();
+    JuneSavings juneSavings = new JuneSavings();
+    JulySavings julySavings = new JulySavings();
+    AugustSavings augustSavings = new AugustSavings();
+    SeptemberSavings septemberSavings = new SeptemberSavings();
+    OctoberSavings octoberSavings = new OctoberSavings();
+    NovemberSavings novemberSavings = new NovemberSavings();
+    DecemberSavings decemberSavings = new DecemberSavings();
 
     double januaryHighYieldInterest = 0.0;
     double januaryNewAverageBalance = 0.0;
@@ -164,6 +180,38 @@ public class CompoundInterest {
     double aprilHighYieldInterest = 0.0;
     double aprilNewAverageBalance = 0.0;
     double aprilHighYieldPrinciple = 0.0;
+
+    double mayHighYieldInterest = 0.0;
+    double mayNewAverageBalance = 0.0;
+    double mayHighYieldPrinciple = 0.0;
+
+    double juneHighYieldInterest = 0.0;
+    double juneNewAverageBalance = 0.0;
+    double juneHighYieldPrinciple = 0.0;
+
+    double julyHighYieldInterest = 0.0;
+    double julyNewAverageBalance = 0.0;
+    double julyHighYieldPrinciple = 0.0;
+
+    double augustHighYieldInterest = 0.0;
+    double augustNewAverageBalance = 0.0;
+    double augustHighYieldPrinciple = 0.0;
+
+    double septemberHighYieldInterest = 0.0;
+    double septemberNewAverageBalance = 0.0;
+    double septemberHighYieldPrinciple = 0.0;
+
+    double octoberHighYieldInterest = 0.0;
+    double octoberNewAverageBalance = 0.0;
+    double octoberHighYieldPrinciple = 0.0;
+
+    double novemberHighYieldInterest = 0.0;
+    double novemberNewAverageBalance = 0.0;
+    double novemberHighYieldPrinciple = 0.0;
+
+    double decemberHighYieldInterest = 0.0;
+    double decemberNewAverageBalance = 0.0;
+    double decemberHighYieldPrinciple = 0.0;
     double totalInterestPaid = 0.0;
     double beginningBalance = 13804.13;
  
@@ -203,8 +251,80 @@ public class CompoundInterest {
       aprilHighYieldInterest = aprilSavings.getHighYieldInterest(marchHighYieldPrinciple, aprilNewAverageBalance, aprilHighYieldInterest);
       aprilHighYieldPrinciple += aprilHighYieldInterest;
       aprilNewAverageBalance = aprilSavings.getUpdatedAverageBalance(aprilNewAverageBalance, aprilHighYieldInterest, 31);
-      totalInterestPaid += marchHighYieldInterest;
+      totalInterestPaid += aprilHighYieldInterest;
       aprilSavings.getReport("April", aprilNewAverageBalance, aprilHighYieldInterest, totalInterestPaid, aprilHighYieldPrinciple);
+
+      //May savings balance
+      mayHighYieldPrinciple = maySavings.getHighYieldPrinciple(aprilHighYieldPrinciple);
+      mayNewAverageBalance = maySavings.getAverageBalance(aprilHighYieldPrinciple);
+      mayHighYieldInterest = maySavings.getHighYieldInterest(aprilHighYieldPrinciple, mayNewAverageBalance, mayHighYieldInterest);
+      mayHighYieldPrinciple += mayHighYieldInterest;
+      mayNewAverageBalance = maySavings.getUpdatedAverageBalance(mayNewAverageBalance, mayHighYieldInterest, 31);
+      totalInterestPaid += mayHighYieldInterest;
+      maySavings.getReport("May", mayNewAverageBalance, mayHighYieldInterest, totalInterestPaid, mayHighYieldPrinciple);
+
+      //June savings balance
+      juneHighYieldPrinciple = juneSavings.getHighYieldPrinciple(mayHighYieldPrinciple);
+      juneNewAverageBalance = juneSavings.getAverageBalance(mayHighYieldPrinciple);
+      juneHighYieldInterest = juneSavings.getHighYieldInterest(mayHighYieldPrinciple, juneNewAverageBalance, juneHighYieldInterest);
+      juneHighYieldPrinciple += juneHighYieldInterest;
+      juneNewAverageBalance = juneSavings.getUpdatedAverageBalance(juneNewAverageBalance, juneHighYieldInterest, 30);
+      totalInterestPaid += juneHighYieldInterest;
+      juneSavings.getReport("June", juneNewAverageBalance, juneHighYieldInterest, totalInterestPaid, juneHighYieldPrinciple);
+
+      //July savings balance
+      julyHighYieldPrinciple = julySavings.getHighYieldPrinciple(juneHighYieldPrinciple);
+      julyNewAverageBalance = julySavings.getAverageBalance(juneHighYieldPrinciple);
+      julyHighYieldInterest = julySavings.getHighYieldInterest(juneHighYieldPrinciple, julyNewAverageBalance, julyHighYieldInterest);
+      julyHighYieldPrinciple += julyHighYieldInterest;
+      julyNewAverageBalance = julySavings.getUpdatedAverageBalance(julyNewAverageBalance, julyHighYieldInterest, 30);
+      totalInterestPaid += julyHighYieldInterest;
+      julySavings.getReport("July", julyNewAverageBalance, julyHighYieldInterest, totalInterestPaid, julyHighYieldPrinciple);
+
+      //August savings balance
+      augustHighYieldPrinciple = augustSavings.getHighYieldPrinciple(julyHighYieldPrinciple);
+      augustNewAverageBalance = augustSavings.getAverageBalance(julyHighYieldPrinciple);
+      augustHighYieldInterest = augustSavings.getHighYieldInterest(julyHighYieldPrinciple, augustNewAverageBalance, augustHighYieldInterest);
+      augustHighYieldPrinciple += augustHighYieldInterest;
+      augustNewAverageBalance = augustSavings.getUpdatedAverageBalance(augustNewAverageBalance, augustHighYieldInterest, 30);
+      totalInterestPaid += augustHighYieldInterest;
+      augustSavings.getReport("August", augustNewAverageBalance, augustHighYieldInterest, totalInterestPaid, augustHighYieldPrinciple);
+
+      //September savings balance
+      septemberHighYieldPrinciple = septemberSavings.getHighYieldPrinciple(augustHighYieldPrinciple);
+      septemberNewAverageBalance = septemberSavings.getAverageBalance(augustHighYieldPrinciple);
+      septemberHighYieldInterest = septemberSavings.getHighYieldInterest(augustHighYieldPrinciple, septemberNewAverageBalance, septemberHighYieldInterest);
+      septemberHighYieldPrinciple += septemberHighYieldInterest;
+      septemberNewAverageBalance = septemberSavings.getUpdatedAverageBalance(septemberNewAverageBalance, septemberHighYieldInterest, 30);
+      totalInterestPaid += septemberHighYieldInterest;
+      septemberSavings.getReport("September", septemberNewAverageBalance, septemberHighYieldInterest, totalInterestPaid, septemberHighYieldPrinciple);
+
+      //October savings balance
+      octoberHighYieldPrinciple = octoberSavings.getHighYieldPrinciple(septemberHighYieldPrinciple);
+      octoberNewAverageBalance = octoberSavings.getAverageBalance(septemberHighYieldPrinciple);
+      octoberHighYieldInterest = octoberSavings.getHighYieldInterest(septemberHighYieldPrinciple, octoberNewAverageBalance, octoberHighYieldInterest);
+      octoberHighYieldPrinciple += octoberHighYieldInterest;
+      octoberNewAverageBalance = octoberSavings.getUpdatedAverageBalance(octoberNewAverageBalance, octoberHighYieldInterest, 30);
+      totalInterestPaid += octoberHighYieldInterest;
+      octoberSavings.getReport("October", octoberNewAverageBalance, octoberHighYieldInterest, totalInterestPaid, octoberHighYieldPrinciple);
+
+      //November savings balance
+      novemberHighYieldPrinciple = novemberSavings.getHighYieldPrinciple(octoberHighYieldPrinciple);
+      novemberNewAverageBalance = novemberSavings.getAverageBalance(octoberHighYieldPrinciple);
+      novemberHighYieldInterest = novemberSavings.getHighYieldInterest(octoberHighYieldPrinciple, novemberNewAverageBalance, novemberHighYieldInterest);
+      novemberHighYieldPrinciple += novemberHighYieldInterest;
+      novemberNewAverageBalance = novemberSavings.getUpdatedAverageBalance(novemberNewAverageBalance, novemberHighYieldInterest, 30);
+      totalInterestPaid += novemberHighYieldInterest;
+      novemberSavings.getReport("November", novemberNewAverageBalance, novemberHighYieldInterest, totalInterestPaid, novemberHighYieldPrinciple);
+
+      //December savings balance
+      decemberHighYieldPrinciple = decemberSavings.getHighYieldPrinciple(novemberHighYieldPrinciple);
+      decemberNewAverageBalance = decemberSavings.getAverageBalance(novemberHighYieldPrinciple);
+      decemberHighYieldInterest = decemberSavings.getHighYieldInterest(novemberHighYieldPrinciple, decemberNewAverageBalance, decemberHighYieldInterest);
+      decemberHighYieldPrinciple += decemberHighYieldInterest;
+      decemberNewAverageBalance = decemberSavings.getUpdatedAverageBalance(decemberNewAverageBalance, decemberHighYieldInterest, 30);
+      totalInterestPaid += decemberHighYieldInterest;
+      decemberSavings.getReport("December", decemberNewAverageBalance, decemberHighYieldInterest, totalInterestPaid, decemberHighYieldPrinciple);
 
       //highYieldPrinciple = februarySavings.getHighYieldPrinciple(days, daysInMonth, interestfinal, highYieldInterest, averageBalance, newAverageBalance, interest, newHighYieldPrinciple, updatedAverageBalance, totalInterestPaid);
       // februarySavingsBalance(days, daysInMonth, interestfinal, highYieldInterest, newHighYieldPrinciple, interest);
