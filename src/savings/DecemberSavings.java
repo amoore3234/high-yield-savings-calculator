@@ -43,6 +43,8 @@ public class DecemberSavings extends Calculations {
   }
 
   public double getHighYieldPrinciple(double highYieldPrinciple) {
+    highYieldPrinciple += 2392.43;
+    highYieldPrinciple += 2392.45;
     return highYieldPrinciple;
   }
 
