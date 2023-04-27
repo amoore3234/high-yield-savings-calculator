@@ -2,6 +2,7 @@ import java.text.DecimalFormat;
 
 import savings.AprilSavings;
 import savings.AugustSavings;
+import savings.DecemberSavings;
 import savings.FebruarySavings;
 import savings.JanuarySavings;
 import savings.JulySavings;
@@ -162,6 +163,7 @@ public class CompoundInterest {
     SeptemberSavings septemberSavings = new SeptemberSavings();
     OctoberSavings octoberSavings = new OctoberSavings();
     NovemberSavings novemberSavings = new NovemberSavings();
+    DecemberSavings decemberSavings = new DecemberSavings();
 
     double januaryHighYieldInterest = 0.0;
     double januaryNewAverageBalance = 0.0;
@@ -206,6 +208,10 @@ public class CompoundInterest {
     double novemberHighYieldInterest = 0.0;
     double novemberNewAverageBalance = 0.0;
     double novemberHighYieldPrinciple = 0.0;
+
+    double decemberHighYieldInterest = 0.0;
+    double decemberNewAverageBalance = 0.0;
+    double decemberHighYieldPrinciple = 0.0;
     double totalInterestPaid = 0.0;
     double beginningBalance = 13804.13;
  
@@ -310,6 +316,15 @@ public class CompoundInterest {
       novemberNewAverageBalance = novemberSavings.getUpdatedAverageBalance(novemberNewAverageBalance, novemberHighYieldInterest, 30);
       totalInterestPaid += novemberHighYieldInterest;
       novemberSavings.getReport("November", novemberNewAverageBalance, novemberHighYieldInterest, totalInterestPaid, novemberHighYieldPrinciple);
+
+      //December savings balance
+      decemberHighYieldPrinciple = decemberSavings.getHighYieldPrinciple(novemberHighYieldPrinciple);
+      decemberNewAverageBalance = decemberSavings.getAverageBalance(novemberHighYieldPrinciple);
+      decemberHighYieldInterest = decemberSavings.getHighYieldInterest(novemberHighYieldPrinciple, decemberNewAverageBalance, decemberHighYieldInterest);
+      decemberHighYieldPrinciple += decemberHighYieldInterest;
+      decemberNewAverageBalance = decemberSavings.getUpdatedAverageBalance(decemberNewAverageBalance, decemberHighYieldInterest, 30);
+      totalInterestPaid += decemberHighYieldInterest;
+      decemberSavings.getReport("December", decemberNewAverageBalance, decemberHighYieldInterest, totalInterestPaid, decemberHighYieldPrinciple);
 
       //highYieldPrinciple = februarySavings.getHighYieldPrinciple(days, daysInMonth, interestfinal, highYieldInterest, averageBalance, newAverageBalance, interest, newHighYieldPrinciple, updatedAverageBalance, totalInterestPaid);
       // februarySavingsBalance(days, daysInMonth, interestfinal, highYieldInterest, newHighYieldPrinciple, interest);
